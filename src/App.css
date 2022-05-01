@@ -1,0 +1,296 @@
+/* .container {
+  width: 90vw;
+  height: 90vh;
+  position: absolute;
+  left:5vw;
+  top:5vh;
+  border-radius: 2vw;
+}
+
+#form {
+  width: 61%;
+  height: 100%;
+  float: right;
+  background: #ffffff;
+  border-radius: 0 2vw 2vw 0;
+}
+
+.slider {
+  position: absolute;
+  width: 39%;
+  height: 100%;
+  background: #ff9200;
+  transition: 1s;
+  left:0;
+  border-radius: 2vw 0 0 2vw;
+}
+
+#face {
+  width: 39%;
+  height: 100%;
+  position: absolute;
+  background-color: #ffd500;
+  border-radius: 2vw 0 0 2vw;
+}
+
+.slide-in {
+  left:39%;
+  width:61%;
+  border-radius: 0 2vw 2vw 0;
+}
+
+.slide-out {
+
+} */
+
+
+
+h1, h2 {
+  color: #383838;
+}
+
+.centerXY {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.centerX{
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#main {
+  position: absolute;
+  width: 90vw;
+  max-width: 140vh;
+  height: calc(90vw/1.55);
+  max-height: 90vh;
+  border-radius: 3vw;
+}
+
+#form {
+  width: 61%;
+  height: 100%;
+  border-radius: 0 3vw 3vw 0;
+  float: right;
+  background-color: white;
+}
+
+#content {
+  position: absolute;
+  width: 62%;
+  height: 100%;
+  background-color: #ff9200;
+  transition: 0.7s;
+}
+
+.contentHidden {
+  border-radius: 3vw 0 0 3vw;
+  left: -10.8%;
+  transform: scaleX(0.6);
+}
+
+.contentShown {
+  border-radius: 0 3vw 3vw 0;
+  left: 38.1%;
+  transform: scaleX(1.0);
+}
+
+#facePanel {
+  position: absolute;
+  width: 39%;
+  height: 100%; 
+  border-radius: 3vw 0 0 3vw;
+  background-color: #ffd500;
+}
+
+.arrow {
+  position: absolute;
+  background-color: #383838;
+  width: 5.45%;
+  height: 3.3%;
+  padding: 3.3%;
+  border-radius: 50%;
+  bottom: 13%;
+  transition: 0.7s;
+}
+
+.arrowRotate {
+  transform: rotate(-180deg);
+}
+
+#face {
+  position: absolute;
+  width: 44.3%;
+  top: 17.5%;
+}
+
+#faceTitle, #contentTitle {
+  font-size: 2.4vw;
+}
+
+#faceTitle {
+  position: relative;
+  text-align: center;
+  font-size: 2.4vw;
+  top: 56%;
+}
+
+#faceBody {
+  position: absolute;
+  text-align: center;
+  font-size: 1.5vw;
+  font-weight: 400;
+  width: 64%;
+  line-height: 130%;
+  top: 66%;
+}
+
+#contentTitle {
+  position: relative;
+  width: 72%;
+  top: 16%;
+}
+
+#contentBody {
+  position: relative;
+  width: 72%;
+  top: 18%;
+  font-size: 1.2vw;
+  font-weight: 200;
+  line-height: 150%;
+}
+
+table {
+  position: relative;
+  left: 13%;
+  top: 11%;
+}
+
+td {
+  width: 12vw;
+  height: 4.2vw;
+  font-size: 1vw;
+}
+
+.formInputFields {
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f5f8f9;
+  width: 25.8vw;
+  height: 3.6vw;
+  box-sizing: border-box;
+  padding: 0 1.5vw 0 1.5vw;
+}
+
+input:focus {
+  border: 2px solid #d7e1e5;
+  background-color: #fcfcfd;
+}
+
+#formGenderM::before {
+  content: url('./assets/img/mars-symbol.svg');
+}
+
+#formGenderF::before {
+  content: url('./assets/img/venus-symbol.svg');
+}
+
+.formMembershipCards::before {
+  content: url('./assets/img/card.svg');
+  background-color: #f5f8f9;
+  border-radius: 50%;
+  padding: 10%;
+}
+
+#formNavButtonContainer {
+  position: absolute;
+  bottom: 18%;
+  width: 27%;
+  height: 6%;
+  display: flex;
+  right: 9%;
+}
+
+.formNavButtons {
+  position: relative;
+  font-size: 1.1vw;
+  font-weight: 200;
+  width: 33%;
+  
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5%;
+  margin-right: 6%;
+}
+
+
+::-webkit-calendar-picker-indicator {
+  background-image: url('./assets/img/calendar.svg');
+  height: 50%;
+  width: 6%;
+  margin-right: 50%;
+}
+
+#formCancel {
+  background-color: #f5f8f9;
+  color: #383838;
+}
+
+#formSave {
+  background-color: #60e6c5;
+}
+
+@media (min-aspect-ratio: 155/100) {
+
+  #form {
+    border-radius: 0 4.7vh 4.7vh 0;
+  }
+
+  .contentHidden {
+    border-radius: 4.7vh 0 0 4.7vh;
+  }
+
+  .contentShown {
+    border-radius: 0 4.7vh 4.7vh 0;
+  }
+
+  #facePanel {
+    border-radius: 4.7vh 0 0 4.7vh;
+  }
+
+  #faceTitle, #contentTitle, #faceTitle {
+    font-size: 3.73vh;
+  }
+
+  #faceBody {
+    font-size: 2.32vh;
+  }
+
+  #contentBody {
+    font-size: 1.86vh;
+  }
+
+  td {
+    width: 18.64vh;
+    height: 6.53vh;
+    font-size: 1.56vh;
+  }
+
+  .formInputFields {
+    width: 40vh;
+    height: 5.6vh;
+  }
+
+  .formNavButtons {
+    font-size: 1.72vh;
+  }
+
+}
+
