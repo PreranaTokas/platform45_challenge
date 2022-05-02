@@ -1,7 +1,8 @@
 body {
-  margin: 0;
-  background-color: #222;
+  background-color: #ededed;
   font-family: sans-serif;
   min-height: 300px;
+  margin: 0;
+  overflow: hidden;
 }
 

@@ -1,49 +1,7 @@
-/* .container {
-  width: 90vw;
-  height: 90vh;
-  position: absolute;
-  left:5vw;
-  top:5vh;
-  border-radius: 2vw;
+
+html {
+  user-select: none;
 }
-
-#form {
-  width: 61%;
-  height: 100%;
-  float: right;
-  background: #ffffff;
-  border-radius: 0 2vw 2vw 0;
-}
-
-.slider {
-  position: absolute;
-  width: 39%;
-  height: 100%;
-  background: #ff9200;
-  transition: 1s;
-  left:0;
-  border-radius: 2vw 0 0 2vw;
-}
-
-#face {
-  width: 39%;
-  height: 100%;
-  position: absolute;
-  background-color: #ffd500;
-  border-radius: 2vw 0 0 2vw;
-}
-
-.slide-in {
-  left:39%;
-  width:61%;
-  border-radius: 0 2vw 2vw 0;
-}
-
-.slide-out {
-
-} */
-
-
 
 h1, h2 {
   color: #383838;
@@ -83,21 +41,49 @@ h1, h2 {
 #content {
   position: absolute;
   width: 62%;
-  height: 100%;
+  height: 99.8%;
   background-color: #ff9200;
-  transition: 0.7s;
+  left: -10.8%;
+  transform: scaleX(0.6);
+  border-radius: 3vw 0 0 3vw;
+}
+
+@keyframes animateContentHidden {
+  from {
+    left: 38.1%;
+    transform: scaleX(1.0);
+    border-radius: 0 3vw 3vw 0;
+      }
+  to {
+    left: -10.8%;
+    transform: scaleX(0.6);
+    border-radius: 3vw 0 0 3vw;
+  }
 }
 
 .contentHidden {
-  border-radius: 3vw 0 0 3vw;
-  left: -10.8%;
-  transform: scaleX(0.6);
+  animation-name: animateContentHidden;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animateContentShown {
+  from {
+    left: -10.8%;
+    transform: scaleX(0.6);
+    border-radius: 3vw 0 0 3vw;
+  }
+  to {
+    left: 38.1%;
+    transform: scaleX(1.0);
+    border-radius: 0 3vw 3vw 0;
+  }
 }
 
 .contentShown {
-  border-radius: 0 3vw 3vw 0;
-  left: 38.1%;
-  transform: scaleX(1.0);
+  animation-name: animateContentShown;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
 }
 
 #facePanel {
@@ -167,12 +153,12 @@ h1, h2 {
 
 table {
   position: relative;
-  left: 13%;
+  left: 18%;
   top: 11%;
 }
 
 td {
-  width: 12vw;
+  width: 9vw;
   height: 4.2vw;
   font-size: 1vw;
 }
@@ -182,7 +168,7 @@ td {
   border: 0;
   border-radius: 5px;
   background-color: #f5f8f9;
-  width: 25.8vw;
+  width: 25vw;
   height: 3.6vw;
   box-sizing: border-box;
   padding: 0 1.5vw 0 1.5vw;
@@ -193,26 +179,50 @@ input:focus {
   background-color: #fcfcfd;
 }
 
-#formGenderM::before {
-  content: url('./assets/img/mars-symbol.svg');
+input {
+  color: #b2c0ce;
+  font-family: sans-serif;
+  font-size: 1.2vw;
 }
 
-#formGenderF::before {
-  content: url('./assets/img/venus-symbol.svg');
+#formMembership {
+  width: 27%;
 }
 
-.formMembershipCards::before {
-  content: url('./assets/img/card.svg');
+.formOptionsCol {
+  width: 4vw;
+  color: #b2c0ce;
+}
+
+.formGenderIcon {
+  position: relative;
+  width: 37%;
+  height: 35.3%;
+  padding: 0.9vw;
   background-color: #f5f8f9;
   border-radius: 50%;
-  padding: 10%;
+}
+
+.formCardIcon {
+  position: relative;
+  width: 53%;
+  height: 50%;
+  padding: 0.7vw;
+  background-color: #f5f8f9;
+  border-radius: 50%;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-image: url('./assets/img/calendar.svg');
+  height: 45%;
+  width: 6%;
 }
 
 #formNavButtonContainer {
   position: absolute;
-  bottom: 18%;
+  bottom: 12%;
   width: 27%;
-  height: 6%;
+  height: 5.7%;
   display: flex;
   right: 9%;
 }
@@ -222,20 +232,11 @@ input:focus {
   font-size: 1.1vw;
   font-weight: 200;
   width: 33%;
-  
   text-align: center;
-  border-radius: 5px;
+  border-radius: 4px;
   color: #fff;
   padding: 5%;
   margin-right: 6%;
-}
-
-
-::-webkit-calendar-picker-indicator {
-  background-image: url('./assets/img/calendar.svg');
-  height: 50%;
-  width: 6%;
-  margin-right: 50%;
 }
 
 #formCancel {
@@ -247,18 +248,245 @@ input:focus {
   background-color: #60e6c5;
 }
 
+#resizeMask {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+#resizeMask > h1:first-child {
+  text-align: center;
+}
+
+.selectedImgBackColor {
+  background-color: #b1bfcd;
+}
+
+/*Mobile Portrait layout*/
+@media (orientation: portrait) {
+
+  body {
+    overflow: visible;
+    overflow-x: hidden;
+  }
+
+  #main {
+    width: 100vw;
+    height: 200vh;
+    max-width: unset;
+    max-height: unset;
+    margin: 0;
+  }
+
+  table {
+    left: 8%;
+    top: 5%;
+  }
+
+  input {
+    font-size: 3.6vw;
+  }
+
+  td {
+    font-size: 4vw;
+  }
+
+  #form > td:first-child {
+    margin-left: 10%;
+  }
+
+  .formInputFields {
+    width: 67vw;
+    height: 11.6vw;
+    margin: auto;
+    top: 52%;
+    left: -10%;
+  }
+
+  #formNameInput {
+    margin-left: 10%;
+  }
+
+  #formNavButtonContainer { 
+      bottom: 11vh;
+      width: 100%;
+      height: 5.7%;
+      display: block;
+      right: unset;
+  }
+
+  .formGenderIcon {
+    width: 46%;
+    height: 100%;
+    padding: 0.7vh;
+  }
+
+  #formGender {
+    width: 17vw;
+  }
+
+  .formGenderIcon {
+    width: 3vw;
+    height: 65%;
+    padding: 2vw;
+  }
+
+  .formOptionsCol {
+    width: 5vw;
+  }
+
+  .formCardIcon {
+    width: 63%;
+    height: 100%;
+    padding: 1.4vw;
+  }
+
+  .formOptionsCol {
+    width: 5vw;
+  }
+  .formCardIcon {
+    width: 69%;
+    height: 100%;
+    padding: 0.6vh;
+  }
+
+  .formNavButtons {
+    position: relative;
+    font-size: 4.1vw;
+    font-weight: 200;
+    margin: 1% auto;
+    width: 90%;
+    text-align: center;
+    border-radius: 4px;
+    padding: 4%;
+  }
+
+  #facePanel {
+    width: 100%;
+    height: 100vh;
+    border-radius: unset;
+  }
+
+  #face {
+    width: 28vh;
+    top: 10vh;
+  }
+
+  #faceTitle {
+    font-size: 10vw;
+    top: 42vh;
+    width: 80%;
+  }
+
+  #faceBody {
+    font-size: 6vw;
+    font-weight: 600;
+    width: 71%;
+    top: 59%;
+  }
+
+  .arrow {
+    width: 3.5vh;
+    height: 3.5vh;
+    transform: rotate(90deg);
+  }
+
+  .arrowRotate {
+    transform: rotate(-90deg);
+  }
+
+  #content {
+    width: 100%;
+    height: 50%;
+    left: 0;
+    transform: initial;
+    border-radius: 0;
+  }
+
+  #contentTitle {
+    font-size: 12vw;
+    margin: 3vw;
+    width: unset;
+    top: 6%;
+  }
+
+  #faceTitle {
+    font-size: 12.4vw;
+  }
+
+  #contentBody {
+    width: 92%;
+    top: 9%;
+    font-size: 4.2vw;
+    font-weight: 400;
+    margin: 3vw;
+  }
+
+  @keyframes animateContentShown {
+    from {
+      top: 0%;
+    }
+    to {
+      top: 50%;
+    }
+  }
+
+  @keyframes animateContentHidden {
+    from {
+      top: 50%;
+        }
+    to {
+      top: 0%;
+    }
+  }
+
+  #form {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    border-radius: unset;
+    float: unset;
+    background-color: white;
+  }
+}
+
+/*When screen is more square than the layout design supplied*/
 @media (min-aspect-ratio: 155/100) {
+
+  input {
+    font-size: 1.85vh;
+  }
 
   #form {
     border-radius: 0 4.7vh 4.7vh 0;
   }
 
-  .contentHidden {
-    border-radius: 4.7vh 0 0 4.7vh;
+  @keyframes animateContentHidden {
+    from {
+      left: 38.1%;
+      transform: scaleX(1.0);
+      border-radius: 0 4.7vh 4.7vh 0;
+        }
+    to {
+      left: -10.8%;
+      transform: scaleX(0.6);
+      border-radius: 4.7vh 0 0 4.7vh;
+    }
   }
 
-  .contentShown {
-    border-radius: 0 4.7vh 4.7vh 0;
+  @keyframes animateContentShown {
+    from {
+      left: -10.8%;
+      transform: scaleX(0.6);
+      border-radius: 4.7vh 0 0 4.7vh;
+    }
+    to {
+      left: 38.1%;
+      transform: scaleX(1.0);
+      border-radius: 0 4.7vh 4.7vh 0;
+    }
   }
 
   #facePanel {
@@ -278,19 +506,58 @@ input:focus {
   }
 
   td {
-    width: 18.64vh;
-    height: 6.53vh;
-    font-size: 1.56vh;
+    width: 13.95vh;
+    height: 6.52vh;
+    font-size: 1.55vh
   }
 
   .formInputFields {
-    width: 40vh;
+    width: 38.71vh;
     height: 5.6vh;
+  }
+
+  .formOptionsCol {
+    width: 6.2vh;
+  }
+
+  .formGenderIcon {
+    padding: 1.55vh;
+  }
+
+  .formCardIcon {
+    padding: 1.09vh;
   }
 
   .formNavButtons {
     font-size: 1.72vh;
   }
-
 }
 
+/*Screen resize promts*/
+@media (max-height: 300px) and (orientation: portrait) { 
+  #main{
+    display: none;
+  }
+  #resizeMask {
+    display: initial;
+  }
+}
+
+@media (max-width: 300px) { 
+  #main{
+    display: none;
+  }
+  #resizeMask {
+    display: initial;
+  }
+}
+
+/*Tablets not yet supported*/
+@media (orientation: portrait) and (min-aspect-ratio: 10/16) {
+   #main{
+    display: none;
+  }
+  #resizeMask {
+    display: initial;
+  }
+}
